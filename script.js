@@ -32,47 +32,6 @@ if (finePointer && !prefersReduced) {
     animateBlobs();
 }
 
-// ===== 吉祥物眼珠跟随鼠标 =====
-const mascot = document.getElementById('mascotArea');
-const pupilL = document.getElementById('pupilL');
-const pupilR = document.getElementById('pupilR');
-
-function movePupils(clientX, clientY) {
-    const rect = mascot.getBoundingClientRect();
-    const cx = rect.left + rect.width / 2;
-    const cy = rect.top + rect.height * 0.42;
-    const dx = clientX - cx;
-    const dy = clientY - cy;
-    const dist = Math.sqrt(dx * dx + dy * dy);
-    const maxMove = 7;
-    const move = Math.min(dist / 24, maxMove);
-    const angle = Math.atan2(dy, dx);
-    const px = Math.cos(angle) * move;
-    const py = Math.sin(angle) * move;
-    const t = `translate(calc(-50% + ${px}px), calc(-50% + ${py}px))`;
-    pupilL.style.transform = t;
-    pupilR.style.transform = t;
-}
-
-if (finePointer) {
-    mascot.addEventListener('mousemove', (e) => movePupils(e.clientX, e.clientY));
-    mascot.addEventListener('mouseleave', () => {
-        pupilL.style.transform = 'translate(-50%, -50%)';
-        pupilR.style.transform = 'translate(-50%, -50%)';
-    });
-    // 鼠标在整页移动时，眼珠也轻微跟随（增强"被盯着"的感觉）
-    window.addEventListener('mousemove', (e) => {
-        const rect = mascot.getBoundingClientRect();
-        const cx = rect.left + rect.width / 2;
-        const cy = rect.top + rect.height * 0.42;
-        const dx = e.clientX - cx;
-        const dy = e.clientY - cy;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist > 260) return; // 太远就不勉强跟随
-        movePupils(e.clientX, e.clientY);
-    });
-}
-
 // ===== 导航栏滚动态 + 顶部进度条 =====
 const navbar = document.getElementById('navbar');
 const progress = document.getElementById('scrollProgress');

@@ -43,29 +43,11 @@
                 </div>
             </div>
 
-            <!-- 右侧：眼珠跟随的漂浮吉祥物 -->
-            <div class="hero-mascot" id="mascotArea" aria-hidden="true">
-                <div class="creature" id="creature">
-                    <div class="tentacle t1"></div>
-                    <div class="tentacle t2"></div>
-                    <div class="tentacle t3"></div>
-                    <div class="creature-body">
-                        <div class="creature-face">
-                            <div class="eye">
-                                <div class="pupil" id="pupilL"></div>
-                            </div>
-                            <div class="eye">
-                                <div class="pupil" id="pupilR"></div>
-                            </div>
-                        </div>
-                        <div class="cheek cheek-l"></div>
-                        <div class="cheek cheek-r"></div>
-                        <div class="smile"></div>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
+
+    <!-- 漂浮水母吉祥物（牵引式跟随鼠标 + 注视） -->
+    <div id="jelly-companion" aria-hidden="true"></div>
 
     <!-- 作品展示 -->
     <section class="work" id="work">
@@ -164,6 +146,10 @@
         </div>
     </footer>
 
+    <script src="jellyfish.js"></script>
     <script src="script.js"></script>
+    <script>
+        if (window.Jellyfish) window.Jellyfish.init('#jelly-companion', { leash: 130 });
+    </script>
 </body>
 </html>
