@@ -1,10 +1,36 @@
 // ============================================================
-//  Alpha Lu · 作品集 —— 交互脚本（版本 C）
-//  眼珠跟随鼠标、吉祥物漂浮、滚动揭示、进度条
+//  淼淼 · 作品集 —— 交互脚本（版本 C：暖橙日落）
+//  渐变光斑随动、眼珠跟随鼠标、滚动揭示、进度条
 // ============================================================
 
 const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const finePointer = window.matchMedia('(pointer: fine)').matches;
+
+// ===== 渐变光斑跟随光标（缓动，营造暖橙日落流动感） =====
+const blob1 = document.getElementById('blob1');
+const blob2 = document.getElementById('blob2');
+let targetX = window.innerWidth / 2;
+let targetY = window.innerHeight / 2;
+let blob1X = 0, blob1Y = 0, blob2X = 0, blob2Y = 0;
+
+if (finePointer && !prefersReduced) {
+    window.addEventListener('mousemove', (e) => {
+        targetX = e.clientX;
+        targetY = e.clientY;
+    });
+
+    function animateBlobs() {
+        // 光斑 1 较快、光斑 2 较慢，形成层次
+        blob1X += (targetX * 0.04 - blob1X) * 0.06;
+        blob1Y += (targetY * 0.04 - blob1Y) * 0.06;
+        blob2X += (targetX * -0.03 - blob2X) * 0.04;
+        blob2Y += (targetY * -0.03 - blob2Y) * 0.04;
+        blob1.style.transform = `translate(${blob1X}px, ${blob1Y}px)`;
+        blob2.style.transform = `translate(${blob2X}px, ${blob2Y}px)`;
+        requestAnimationFrame(animateBlobs);
+    }
+    animateBlobs();
+}
 
 // ===== 吉祥物眼珠跟随鼠标 =====
 const mascot = document.getElementById('mascotArea');
@@ -34,7 +60,7 @@ if (finePointer) {
         pupilL.style.transform = 'translate(-50%, -50%)';
         pupilR.style.transform = 'translate(-50%, -50%)';
     });
-    // 鼠标在整个页面移动时，眼珠也轻微跟随（增强"被盯着"的感觉）
+    // 鼠标在整页移动时，眼珠也轻微跟随（增强"被盯着"的感觉）
     window.addEventListener('mousemove', (e) => {
         const rect = mascot.getBoundingClientRect();
         const cx = rect.left + rect.width / 2;
