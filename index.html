@@ -11,52 +11,119 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- 顶部滚动进度条 -->
-    <div class="scroll-progress" id="scrollProgress"></div>
+    <!-- 鼠标形状跟随 -->
+    <div class="cursor-shape"></div>
+    <div class="cursor-dot"></div>
+
+    <!-- 装饰元素 -->
+    <div class="deco deco-1"></div>
+    <div class="deco deco-2"></div>
+    <div class="deco deco-3"></div>
 
     <!-- 导航栏 -->
-    <nav class="navbar" id="navbar">
-        <div class="container nav-container">
-            <a href="#hero" class="logo">淼<span>淼</span></a>
-            <ul class="nav-links">
-                <li><a href="#work">作品</a></li>
-                <li><a href="#contact">联系</a></li>
-            </ul>
+    <nav class="nav">
+        <a href="#" class="nav-logo">淼淼<span class="logo-dot">.</span></a>
+        <div class="nav-menu">
+            <a href="#about" class="nav-link">关于</a>
+            <a href="#work" class="nav-link">作品</a>
+            <a href="#contact" class="nav-link">联系</a>
         </div>
     </nav>
 
-    <!-- 英雄区 -->
+    <!-- Hero区 -->
     <section class="hero" id="hero">
-        <div class="container hero-container">
-            <!-- 左侧：文案 -->
-            <div class="hero-content">
-                <span class="hero-label">Portfolio — 2026</span>
-                <h1 class="hero-title">把想法<br><span>做完</span>的人</h1>
-                <p class="hero-desc">靠 AI 编程把脑子里的想法变成能用的产品。一个人做过安卓应用、搭过每天自动跑的系统，也给开源工具写过插件。</p>
-                <div class="hero-buttons">
-                    <a href="#work" class="btn btn-primary">看看作品</a>
-                    <a href="https://github.com/kekcidbbe-sudo" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
-                </div>
+        <div class="hero-bg">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+            <div class="blob blob-3"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-greeting">
+                <span class="wave">👋</span>
+                <span>Portfolio — 2026</span>
             </div>
+            <h1 class="hero-title">
+                <span class="title-name">淼淼</span>
+                <span class="title-role">AI 编程开发者</span>
+            </h1>
+            <p class="hero-desc">
+                靠 AI 编程把脑子里的想法变成能用的产品。
+                <br>
+                一个人做过安卓应用、搭过每天自动跑的系统，也给开源工具写过插件。
+            </p>
+            <div class="hero-cta">
+                <a href="#work" class="btn btn-primary">
+                    <span>看看作品</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="https://github.com/kekcidbbe-sudo" target="_blank" rel="noopener" class="btn btn-secondary">GitHub</a>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+        </div>
+    </section>
 
-            <!-- 右侧：眼珠跟随的漂浮吉祥物 -->
-            <div class="hero-mascot" id="mascotArea" aria-hidden="true">
-                <div class="creature" id="creature">
-                    <div class="tentacle t1"></div>
-                    <div class="tentacle t2"></div>
-                    <div class="tentacle t3"></div>
-                    <div class="creature-body">
-                        <div class="creature-face">
-                            <div class="eye">
-                                <div class="pupil" id="pupilL"></div>
-                            </div>
-                            <div class="eye">
-                                <div class="pupil" id="pupilR"></div>
-                            </div>
+    <!-- 关于我 -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">关于我</span>
+                <h2 class="section-title">
+                    把想法
+                    <span class="title-highlight">做完</span>
+                    的人
+                </h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-visual fade-in">
+                    <div class="avatar-wrapper">
+                        <div class="avatar-placeholder">
+                            <span>🚀</span>
                         </div>
-                        <div class="cheek cheek-l"></div>
-                        <div class="cheek cheek-r"></div>
-                        <div class="smile"></div>
+                        <div class="avatar-ring"></div>
+                    </div>
+                    <div class="about-badge">
+                        <span class="badge-icon">🤖</span>
+                        <span class="badge-text">AI 编程驱动</span>
+                    </div>
+                </div>
+                <div class="about-content fade-in">
+                    <p class="about-text">
+                        嗨！我是淼淼，一个靠 AI 编程把脑子里的想法变成能用的产品的人。
+                    </p>
+                    <p class="about-text">
+                        一个人做过安卓应用、搭过每天自动跑的系统，也给开源工具写过插件。
+                        从想法到产品，全程自己搞定！
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat-card">
+                            <span class="stat-emoji">📱</span>
+                            <span class="stat-number" data-target="3">0</span>
+                            <span class="stat-label">独立项目</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-emoji">⚡</span>
+                            <span class="stat-number" data-target="100">0</span>
+                            <span class="stat-label">AI 编程</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-emoji">🔧</span>
+                            <span class="stat-number" data-target="5">0</span>
+                            <span class="stat-label">技术栈</span>
+                        </div>
+                    </div>
+                    <div class="about-skills">
+                        <span class="skill-bubble">TypeScript</span>
+                        <span class="skill-bubble">React</span>
+                        <span class="skill-bubble">Kotlin</span>
+                        <span class="skill-bubble">Python</span>
+                        <span class="skill-bubble">AI 编程</span>
+                        <span class="skill-bubble">全栈开发</span>
                     </div>
                 </div>
             </div>
@@ -64,99 +131,155 @@
     </section>
 
     <!-- 作品展示 -->
-    <section class="work" id="work">
+    <section class="section work" id="work">
         <div class="container">
-            <div class="section-head">
-                <span class="section-num">01</span>
-                <h2 class="section-title">精选作品</h2>
-                <p class="section-sub">三件从真实需求出发、一个人做完的作品。</p>
+            <div class="section-header fade-in">
+                <span class="section-tag">精选作品</span>
+                <h2 class="section-title">
+                    三件从真实需求出发、
+                    <span class="title-highlight">一个人做完</span>
+                    的作品
+                </h2>
             </div>
-
-            <!-- 主推项目：DSH Message Navigator -->
-            <article class="project-card featured">
-                <span class="project-type">开源插件 · Open Source</span>
-                <h3 class="project-name">DSH Message Navigator</h3>
-                <p class="project-desc">为 DeepSeek Harness Web UI 提供 Codex 风格的会话消息导航器。长对话不再需要疯狂滚动——左侧出现消息目录，点击即跳转，滚动自动同步高亮。支持搜索与 Markdown 导出。纯浏览器端运行，不发送任何数据。</p>
-                <div class="project-meta">
-                    <span>TypeScript</span>
-                    <span>React JSX</span>
-                    <span>DeepSeek Harness</span>
-                    <span>MIT License</span>
-                    <span>v0.1.3</span>
+            <div class="work-grid">
+                <!-- 项目1: DSH Message Navigator -->
+                <div class="work-card fade-in" data-color="#8b5cf6">
+                    <div class="card-visual">
+                        <div class="card-placeholder" style="background: linear-gradient(135deg, #8b5cf6, #6366f1);">
+                            <span class="card-emoji">🧭</span>
+                        </div>
+                        <div class="card-shape"></div>
+                    </div>
+                    <div class="card-info">
+                        <div class="card-tags">
+                            <span class="card-tag">开源插件</span>
+                            <span class="card-tag">Open Source</span>
+                        </div>
+                        <h3 class="card-title">DSH Message Navigator</h3>
+                        <p class="card-desc">为 DeepSeek Harness Web UI 提供 Codex 风格的会话消息导航器。长对话不再需要疯狂滚动——左侧出现消息目录，点击即跳转。</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">React JSX</span>
+                        </div>
+                        <a href="https://github.com/kekcidbbe-sudo/dsh-message-navigator" target="_blank" rel="noopener" class="card-link">
+                            查看源码
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
-                <div class="project-links">
-                    <a href="https://github.com/kekcidbbe-sudo/dsh-message-navigator" target="_blank" rel="noopener" class="project-link">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-                        <span>查看源码</span>
-                    </a>
+                <!-- 项目2: PureSkip -->
+                <div class="work-card fade-in" data-color="#10b981">
+                    <div class="card-visual">
+                        <div class="card-placeholder" style="background: linear-gradient(135deg, #10b981, #059669);">
+                            <span class="card-emoji">📱</span>
+                        </div>
+                        <div class="card-shape"></div>
+                    </div>
+                    <div class="card-info">
+                        <div class="card-tags">
+                            <span class="card-tag">Android 应用</span>
+                            <span class="card-tag">开源</span>
+                        </div>
+                        <h3 class="card-title">纯净跳过 PureSkip</h3>
+                        <p class="card-desc">通过无障碍服务自动识别并跳过 APP 开屏广告的安卓工具。完全本地处理，不含联网权限，APK 仅 2.6MB。</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Kotlin</span>
+                            <span class="tech-tag">Accessibility</span>
+                        </div>
+                        <div class="card-links">
+                            <a href="https://pureskip.pages.dev/" target="_blank" rel="noopener" class="card-link">
+                                产品网站
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+                                </svg>
+                            </a>
+                            <a href="https://github.com/kekcidbbe-sudo/PureSkip" target="_blank" rel="noopener" class="card-link">
+                                开源代码
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-            </article>
-
-            <div class="project-grid">
-                <article class="project-card">
-                    <span class="project-type">Android 应用</span>
-                    <h3 class="project-name">纯净跳过 <span>PureSkip</span></h3>
-                    <p class="project-desc">通过无障碍服务自动识别并跳过 APP 开屏广告的安卓工具。完全本地处理，不含联网权限，APK 仅 2.6MB。</p>
-                    <div class="project-meta">
-                        <span>Kotlin</span>
-                        <span>Accessibility</span>
-                        <span>单元测试</span>
+                <!-- 项目3: 智能选股分析系统 -->
+                <div class="work-card fade-in featured" data-color="#f59e0b">
+                    <div class="card-visual">
+                        <div class="card-placeholder" style="background: linear-gradient(135deg, #f59e0b, #d97706);">
+                            <span class="card-emoji">📈</span>
+                        </div>
+                        <div class="card-shape"></div>
                     </div>
-                    <div class="project-links">
-                        <a href="https://pureskip.pages.dev/" target="_blank" rel="noopener" class="project-link">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                            <span>产品网站</span>
-                        </a>
-                        <a href="https://github.com/kekcidbbe-sudo/PureSkip" target="_blank" rel="noopener" class="project-link">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-                            <span>开源代码</span>
-                        </a>
-                    </div>
-                </article>
-
-                <article class="project-card">
-                    <span class="project-type">全栈系统</span>
-                    <h3 class="project-name">智能选股分析系统 <span>Stock</span></h3>
-                    <p class="project-desc">一套完整的每日选股流程：盘前分析、飞书推送候选、用户交互确认、模拟交易、盘后复盘。部署在云服务器上每天自动跑。</p>
-                    <div class="project-meta">
-                        <span>Python</span>
-                        <span>LLM</span>
-                        <span>飞书 API</span>
-                        <span>SQLite</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="http://49.233.30.134/" target="_blank" rel="noopener" class="project-link">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                            <span>查看 Dashboard</span>
+                    <div class="card-info">
+                        <div class="card-tags">
+                            <span class="card-tag">全栈系统</span>
+                            <span class="card-tag">自动化</span>
+                        </div>
+                        <h3 class="card-title">智能选股分析系统</h3>
+                        <p class="card-desc">一套完整的每日选股流程：盘前分析、飞书推送候选、用户交互确认、模拟交易、盘后复盘。部署在云服务器上每天自动跑。</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">LLM</span>
+                            <span class="tech-tag">飞书 API</span>
+                        </div>
+                        <a href="http://49.233.30.134/" target="_blank" rel="noopener" class="card-link">
+                            查看 Dashboard
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+                            </svg>
                         </a>
                     </div>
-                </article>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- 联系方式 -->
-    <section class="contact" id="contact">
-        <div class="container contact-inner">
-            <span class="section-num center">02</span>
-            <h2 class="contact-title">想聊聊？随时找我</h2>
-            <p class="contact-desc">有项目想法、想找人一起做，或者只是想认识一下——都欢迎。</p>
-            <div class="contact-links">
-                <a href="https://github.com/kekcidbbe-sudo" target="_blank" rel="noopener" class="contact-item">
-                    <span>GitHub</span>
-                </a>
-                <a href="mailto:2795542990@qq.com" class="contact-item">
-                    <span>发邮件</span>
-                </a>
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="contact-wrapper fade-in">
+                <div class="contact-bg">
+                    <div class="contact-blob"></div>
+                </div>
+                <div class="contact-content">
+                    <span class="contact-tag">想聊聊？</span>
+                    <h2 class="contact-title">
+                        随时找我
+                        <br>
+                        <span class="title-highlight">都欢迎</span>
+                    </h2>
+                    <p class="contact-desc">
+                        有项目想法、想找人一起做，或者只是想认识一下——
+                        <br>
+                        用 AI 编程把想法变成产品，我擅长这个。
+                    </p>
+                    <a href="mailto:2795542990@qq.com" class="contact-email">
+                        2795542990@qq.com
+                    </a>
+                    <div class="contact-social">
+                        <a href="https://github.com/kekcidbbe-sudo" target="_blank" rel="noopener" class="social-btn">
+                            <span class="social-icon">GitHub</span>
+                        </a>
+                        <a href="mailto:2795542990@qq.com" class="social-btn">
+                            <span class="social-icon">发邮件</span>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- 页脚 -->
     <footer class="footer">
-        <div class="container footer-container">
-            <p>© 2026 淼淼</p>
-            <p class="footer-note">手作敲的，用 AI 打磨 ✦</p>
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">
+                    手作敲的，用 AI 打磨 ✦
+                </p>
+                <p class="footer-copy">&copy; 2026 淼淼</p>
+            </div>
         </div>
     </footer>
 

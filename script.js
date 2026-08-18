@@ -1,91 +1,188 @@
-// ============================================================
-//  Alpha Lu · 作品集 —— 交互脚本（版本 C）
-//  眼珠跟随鼠标、吉祥物漂浮、滚动揭示、进度条
-// ============================================================
+// 创意艺术风 - 互动效果
 
-const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const finePointer = window.matchMedia('(pointer: fine)').matches;
+document.addEventListener('DOMContentLoaded', () => {
+    // 鼠标形状跟随
+    const cursorShape = document.querySelector('.cursor-shape');
+    const cursorDot = document.querySelector('.cursor-dot');
+    let mouseX = 0, mouseY = 0;
+    let shapeX = 0, shapeY = 0;
+    let dotX = 0, dotY = 0;
 
-// ===== 吉祥物眼珠跟随鼠标 =====
-const mascot = document.getElementById('mascotArea');
-const pupilL = document.getElementById('pupilL');
-const pupilR = document.getElementById('pupilR');
-
-function movePupils(clientX, clientY) {
-    const rect = mascot.getBoundingClientRect();
-    const cx = rect.left + rect.width / 2;
-    const cy = rect.top + rect.height * 0.42;
-    const dx = clientX - cx;
-    const dy = clientY - cy;
-    const dist = Math.sqrt(dx * dx + dy * dy);
-    const maxMove = 7;
-    const move = Math.min(dist / 24, maxMove);
-    const angle = Math.atan2(dy, dx);
-    const px = Math.cos(angle) * move;
-    const py = Math.sin(angle) * move;
-    const t = `translate(calc(-50% + ${px}px), calc(-50% + ${py}px))`;
-    pupilL.style.transform = t;
-    pupilR.style.transform = t;
-}
-
-if (finePointer) {
-    mascot.addEventListener('mousemove', (e) => movePupils(e.clientX, e.clientY));
-    mascot.addEventListener('mouseleave', () => {
-        pupilL.style.transform = 'translate(-50%, -50%)';
-        pupilR.style.transform = 'translate(-50%, -50%)';
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
     });
-    // 鼠标在整个页面移动时，眼珠也轻微跟随（增强"被盯着"的感觉）
-    window.addEventListener('mousemove', (e) => {
-        const rect = mascot.getBoundingClientRect();
-        const cx = rect.left + rect.width / 2;
-        const cy = rect.top + rect.height * 0.42;
-        const dx = e.clientX - cx;
-        const dy = e.clientY - cy;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist > 260) return; // 太远就不勉强跟随
-        movePupils(e.clientX, e.clientY);
+
+    function animateCursor() {
+        // 形状跟随（慢）
+        shapeX += (mouseX - shapeX) * 0.08;
+        shapeY += (mouseY - shapeY) * 0.08;
+        cursorShape.style.left = shapeX + 'px';
+        cursorShape.style.top = shapeY + 'px';
+
+        // 点跟随（快）
+        dotX += (mouseX - dotX) * 0.2;
+        dotY += (mouseY - dotY) * 0.2;
+        cursorDot.style.left = dotX + 'px';
+        cursorDot.style.top = dotY + 'px';
+
+        requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+
+    // Hover效果 - 形状变化
+    const hoverElements = document.querySelectorAll('a, button, .work-card, .skill-bubble, .social-btn');
+    hoverElements.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            cursorShape.classList.add('squircle');
+        });
+        el.addEventListener('mouseleave', () => {
+            cursorShape.classList.remove('squircle');
+        });
     });
-}
 
-// ===== 导航栏滚动态 + 顶部进度条 =====
-const navbar = document.getElementById('navbar');
-const progress = document.getElementById('scrollProgress');
+    // 滚动动画 - Intersection Observer
+    const fadeElements = document.querySelectorAll('.fade-in');
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
 
-function onScroll() {
-    const y = window.scrollY;
-    navbar.classList.toggle('scrolled', y > 40);
-    const docH = document.documentElement.scrollHeight - window.innerHeight;
-    progress.style.width = (docH > 0 ? (y / docH) * 100 : 0) + '%';
-}
-window.addEventListener('scroll', onScroll, { passive: true });
-onScroll();
+    const fadeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                fadeObserver.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
 
-// ===== 滚动揭示（IntersectionObserver，带交错） =====
-const revealTargets = document.querySelectorAll('.project-card, .section-head, .contact-inner');
-revealTargets.forEach(el => el.classList.add('reveal'));
+    fadeElements.forEach(el => fadeObserver.observe(el));
 
-const io = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        const el = entry.target;
-        const siblings = Array.from(el.parentElement.children).filter(c => c.classList.contains('reveal'));
-        const idx = Math.max(0, siblings.indexOf(el));
-        setTimeout(() => el.classList.add('visible'), Math.min(idx, 4) * 90);
-        io.unobserve(el);
+    // 数字计数动画
+    const statNumbers = document.querySelectorAll('.stat-number');
+    const statObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const target = parseInt(entry.target.dataset.target);
+                animateNumber(entry.target, target);
+                statObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    statNumbers.forEach(el => statObserver.observe(el));
+
+    function animateNumber(element, target) {
+        let current = 0;
+        const increment = target / 60;
+        const duration = 1500;
+        const stepTime = duration / 60;
+
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                current = target;
+                clearInterval(timer);
+            }
+            element.textContent = Math.floor(current) + '+';
+        }, stepTime);
+    }
+
+    // 卡片视差效果
+    const workCards = document.querySelectorAll('.work-card');
+    workCards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            const rotateX = (y - centerY) / 30;
+            const rotateY = (centerX - x) / 30;
+
+            card.style.transform = `
+                perspective(1000px)
+                rotateX(${rotateX}deg)
+                rotateY(${rotateY}deg)
+                translateY(-10px)
+                rotate(-1deg)
+            `;
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0) rotate(0)';
+        });
     });
-}, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
 
-revealTargets.forEach(el => io.observe(el));
+    // 技能标签弹性动画
+    const skillBubbles = document.querySelectorAll('.skill-bubble');
+    skillBubbles.forEach((bubble, index) => {
+        bubble.addEventListener('mouseenter', () => {
+            bubble.style.animationDelay = (index * 0.05) + 's';
+        });
+    });
 
-// ===== 平滑滚动（导航锚点） =====
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        const id = this.getAttribute('href');
-        if (id === '#') return;
-        const target = document.querySelector(id);
-        if (target) {
+    // 装饰元素视差
+    const decos = document.querySelectorAll('.deco');
+    window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+        decos.forEach((deco, index) => {
+            const speed = (index + 1) * 0.1;
+            deco.style.transform = `translateY(${scrollY * speed}px)`;
+        });
+    });
+
+    // 平滑滚动导航
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            target.scrollIntoView({ behavior: prefersReduced ? 'auto' : 'smooth', block: 'start' });
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // 导航栏滚动效果
+    const nav = document.querySelector('.nav');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            nav.style.background = 'rgba(254, 249, 243, 0.95)';
+            nav.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.05)';
+        } else {
+            nav.style.background = 'rgba(254, 249, 243, 0.8)';
+            nav.style.boxShadow = 'none';
         }
     });
+
+    // Blob鼠标跟随
+    const blobs = document.querySelectorAll('.blob');
+    document.addEventListener('mousemove', (e) => {
+        const x = e.clientX / window.innerWidth;
+        const y = e.clientY / window.innerHeight;
+
+        blobs.forEach((blob, index) => {
+            const speed = (index + 1) * 20;
+            const moveX = (x - 0.5) * speed;
+            const moveY = (y - 0.5) * speed;
+            blob.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        });
+    });
+
+    // 页面加载动画
+    setTimeout(() => {
+        document.querySelector('.hero-content').style.opacity = '1';
+    }, 100);
 });
+
+// 初始样式
+document.querySelector('.hero-content').style.cssText = `
+    opacity: 0;
+    transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+`;
