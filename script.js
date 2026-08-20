@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fadeElements.forEach(el => fadeObserver.observe(el));
 
     // 数字计数动画
-    const statNumbers = document.querySelectorAll('.stat-number');
+    const statNumbers = document.querySelectorAll('.stat-number[data-target]');
     const statObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -90,33 +90,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, stepTime);
     }
 
-    // 卡片视差效果
-    const workCards = document.querySelectorAll('.work-card');
-    workCards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-
-            const rotateX = (y - centerY) / 30;
-            const rotateY = (centerX - x) / 30;
-
-            card.style.transform = `
-                perspective(1000px)
-                rotateX(${rotateX}deg)
-                rotateY(${rotateY}deg)
-                translateY(-10px)
-                rotate(-1deg)
-            `;
-        });
-
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0) rotate(0)';
-        });
-    });
-
     // 技能标签弹性动画
     const skillBubbles = document.querySelectorAll('.skill-bubble');
     skillBubbles.forEach((bubble, index) => {
@@ -138,9 +111,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // 平滑滚动导航
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const href = this.getAttribute('href');
+            if (href === '#') return;
+            const target = document.querySelector(href);
             if (target) {
+                e.preventDefault();
                 target.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
