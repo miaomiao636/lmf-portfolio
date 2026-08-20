@@ -22,11 +22,17 @@
 
     <!-- 导航栏 -->
     <nav class="nav">
-        <a href="#" class="nav-logo">淼淼<span class="logo-dot">.</span></a>
-        <div class="nav-menu">
-            <a href="#about" class="nav-link">关于</a>
-            <a href="#work" class="nav-link">作品</a>
-            <a href="#contact" class="nav-link">联系</a>
+        <a href="#" class="nav-logo"><span data-i18n="name">淼淼</span><span class="logo-dot">.</span></a>
+        <div class="nav-actions">
+            <div class="nav-menu">
+                <a href="#about" class="nav-link" data-i18n="navAbout">关于</a>
+                <a href="#work" class="nav-link" data-i18n="navWork">作品</a>
+                <a href="#contact" class="nav-link" data-i18n="navContact">联系</a>
+            </div>
+            <div class="language-switch" role="group" aria-label="语言选择" data-i18n-aria="languageSwitch">
+                <button type="button" class="language-option active" data-language="zh" aria-pressed="true">中文</button>
+                <button type="button" class="language-option" data-language="en" aria-pressed="false">EN</button>
+            </div>
         </div>
     </nav>
 
@@ -43,17 +49,17 @@
                 <span>Portfolio — 2026</span>
             </div>
             <h1 class="hero-title">
-                <span class="title-name">淼淼</span>
-                <span class="title-role">AI个人项目实践者</span>
+                <span class="title-name" data-i18n="name">淼淼</span>
+                <span class="title-role" data-i18n="heroRole">AI个人项目实践者</span>
             </h1>
             <p class="hero-desc">
-                喜欢研究和使用 AI，关注真实需求，习惯用合适的技术和 AI 工具解决具体问题。
+                <span data-i18n="heroDesc1">喜欢研究和使用 AI，关注真实需求，习惯用合适的技术和 AI 工具解决具体问题。</span>
                 <br>
-                持续尝试把想法做成能运行、能使用的小产品。
+                <span data-i18n="heroDesc2">持续尝试把想法做成能运行、能使用的小产品。</span>
             </p>
             <div class="hero-cta">
                 <a href="#work" class="btn btn-primary">
-                    <span>看看作品</span>
+                    <span data-i18n="viewWork">看看作品</span>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M5 12h14M12 5l7 7-7 7"/>
                     </svg>
@@ -72,11 +78,11 @@
     <section class="section about" id="about">
         <div class="container">
             <div class="section-header fade-in">
-                <span class="section-tag">关于我</span>
+                <span class="section-tag" data-i18n="aboutTag">关于我</span>
                 <h2 class="section-title">
-                    把想法
-                    <span class="title-highlight">做完</span>
-                    的人
+                    <span data-i18n="aboutTitlePrefix">把想法</span>
+                    <span class="title-highlight" data-i18n="aboutTitleHighlight">做完</span>
+                    <span data-i18n="aboutTitleSuffix">的人</span>
                 </h2>
             </div>
             <div class="about-grid">
@@ -89,32 +95,27 @@
                     </div>
                     <div class="about-badge">
                         <span class="badge-icon">🛠️</span>
-                        <span class="badge-text">AI 工具与项目实践</span>
+                        <span class="badge-text" data-i18n="aboutBadge">AI 工具与项目实践</span>
                     </div>
                 </div>
                 <div class="about-content fade-in">
-                    <p class="about-text">
-                        嗨！我是淼淼，一名 AI个人项目实践者。
-                    </p>
-                    <p class="about-text">
-                        喜欢研究和使用 AI，关注真实需求，习惯用合适的技术和 AI 工具解决具体问题。
-                        持续尝试把想法做成能运行、能使用的小产品。
-                    </p>
+                    <p class="about-text" data-i18n="aboutIntro">嗨！我是淼淼，一名 AI个人项目实践者。</p>
+                    <p class="about-text" data-i18n="aboutBody">喜欢研究和使用 AI，关注真实需求，习惯用合适的技术和 AI 工具解决具体问题。持续尝试把想法做成能运行、能使用的小产品。</p>
                     <div class="about-stats">
                         <div class="stat-card">
                             <span class="stat-emoji">📱</span>
                             <span class="stat-number" data-target="4">0</span>
-                            <span class="stat-label">独立项目</span>
+                            <span class="stat-label" data-i18n="independentProjects">独立项目</span>
                         </div>
                         <div class="stat-card">
                             <span class="stat-emoji">⚡</span>
-                            <span class="stat-number stat-text">持续</span>
-                            <span class="stat-label">项目实践</span>
+                            <span class="stat-number stat-text" data-i18n="ongoing">持续</span>
+                            <span class="stat-label" data-i18n="projectPractice">项目实践</span>
                         </div>
                         <div class="stat-card">
                             <span class="stat-emoji">🔧</span>
                             <span class="stat-number" data-target="5">0</span>
-                            <span class="stat-label">技术栈</span>
+                            <span class="stat-label" data-i18n="techStacks">技术栈</span>
                         </div>
                     </div>
                     <div class="about-skills">
@@ -122,8 +123,8 @@
                         <span class="skill-bubble">React</span>
                         <span class="skill-bubble">Kotlin</span>
                         <span class="skill-bubble">Python</span>
-                        <span class="skill-bubble">AI 工具</span>
-                        <span class="skill-bubble">全栈开发</span>
+                        <span class="skill-bubble" data-i18n="aiTools">AI 工具</span>
+                        <span class="skill-bubble" data-i18n="fullStackDevelopment">全栈开发</span>
                     </div>
                 </div>
             </div>
@@ -134,23 +135,23 @@
     <section class="section work" id="work">
         <div class="container">
             <div class="section-header fade-in">
-                <span class="section-tag">精选作品</span>
+                <span class="section-tag" data-i18n="workTag">精选作品</span>
                 <h2 class="section-title">
-                    四个从真实需求出发、
-                    <span class="title-highlight">持续打磨</span>
-                    的项目
+                    <span data-i18n="workTitlePrefix">四个从真实需求出发、</span>
+                    <span class="title-highlight" data-i18n="workTitleHighlight">持续打磨</span>
+                    <span data-i18n="workTitleSuffix">的项目</span>
                 </h2>
-                <p class="section-lead">从安卓工具、开源插件，到数据分析与自动化系统。每个项目都对应一个具体问题，也保留了可以继续迭代的空间。</p>
+                <p class="section-lead" data-i18n="workLead">从安卓工具、开源插件，到数据分析与自动化系统。每个项目都对应一个具体问题，也保留了可以继续迭代的空间。</p>
             </div>
             <div class="work-grid">
                 <!-- 项目1: DSH Message Navigator -->
                 <article class="work-card project-navigator fade-in">
-                    <div class="card-visual" aria-label="DSH Message Navigator 界面示意">
+                    <div class="card-visual" aria-label="DSH Message Navigator 界面示意" data-i18n-aria="navigatorAria">
                         <div class="mock-browser">
                             <div class="mock-browser-bar"><i></i><i></i><i></i><span>DeepSeek Harness</span></div>
                             <div class="navigator-preview">
                                 <div class="navigator-rail">
-                                    <span class="rail-title">消息</span>
+                                    <span class="rail-title" data-i18n="messages">消息</span>
                                     <i class="active"></i><i></i><i></i><i></i><i></i>
                                 </div>
                                 <div class="navigator-chat">
@@ -161,27 +162,27 @@
                                 </div>
                             </div>
                         </div>
-                        <span class="visual-caption">长对话 · 快速定位</span>
+                        <span class="visual-caption" data-i18n="navigatorCaption">长对话 · 快速定位</span>
                     </div>
                     <div class="card-info">
                         <span class="project-number">01 / OPEN SOURCE</span>
                         <div class="card-tags">
-                            <span class="card-tag">开源插件</span>
-                            <span class="card-tag">效率工具</span>
+                            <span class="card-tag" data-i18n="openSourcePlugin">开源插件</span>
+                            <span class="card-tag" data-i18n="productivityTool">效率工具</span>
                         </div>
                         <h3 class="card-title">DSH Message Navigator</h3>
-                        <p class="card-desc">为 DeepSeek Harness Web UI 增加 Codex 风格的会话消息导航。长对话不用反复滚动，点击目录即可回到指定消息。</p>
+                        <p class="card-desc" data-i18n="navigatorDesc">为 DeepSeek Harness Web UI 增加 Codex 风格的会话消息导航。长对话不用反复滚动，点击目录即可回到指定消息。</p>
                         <ul class="project-points">
-                            <li>自动生成会话消息目录</li>
-                            <li>支持一键定位与长对话浏览</li>
-                            <li>以插件形式接入现有 Web UI</li>
+                            <li data-i18n="navigatorPoint1">自动生成会话消息目录</li>
+                            <li data-i18n="navigatorPoint2">支持一键定位与长对话浏览</li>
+                            <li data-i18n="navigatorPoint3">以插件形式接入现有 Web UI</li>
                         </ul>
                         <div class="project-tech">
                             <span class="tech-tag">TypeScript</span>
                             <span class="tech-tag">React JSX</span>
                         </div>
                         <a href="https://github.com/miaomiao636/dsh-message-navigator" target="_blank" rel="noopener" class="card-link">
-                            查看源码
+                            <span data-i18n="viewSource">查看源码</span>
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
                             </svg>
@@ -190,31 +191,31 @@
                 </article>
                 <!-- 项目2: PureSkip -->
                 <article class="work-card project-pureskip fade-in">
-                    <div class="card-visual" aria-label="PureSkip 安卓应用界面示意">
+                    <div class="card-visual" aria-label="PureSkip 安卓应用界面示意" data-i18n-aria="pureskipAria">
                         <div class="phone-shell">
                             <div class="phone-speaker"></div>
                             <div class="phone-screen">
                                 <div class="phone-appbar"><span>PureSkip</span><i></i></div>
                                 <div class="shield-mark">✓</div>
-                                <strong>服务运行中</strong>
-                                <small>自动识别并跳过开屏广告</small>
-                                <div class="skip-stat"><span>今日已跳过</span><b>12</b></div>
+                                <strong data-i18n="serviceRunning">服务运行中</strong>
+                                <small data-i18n="skipSplashAds">自动识别并跳过开屏广告</small>
+                                <div class="skip-stat"><span data-i18n="skippedToday">今日已跳过</span><b>12</b></div>
                             </div>
                         </div>
-                        <span class="visual-caption">本地处理 · 无联网权限</span>
+                        <span class="visual-caption" data-i18n="pureskipCaption">本地处理 · 无联网权限</span>
                     </div>
                     <div class="card-info">
                         <span class="project-number">02 / ANDROID</span>
                         <div class="card-tags">
-                            <span class="card-tag">Android 应用</span>
-                            <span class="card-tag">隐私友好</span>
+                            <span class="card-tag" data-i18n="androidApp">Android 应用</span>
+                            <span class="card-tag" data-i18n="privacyFriendly">隐私友好</span>
                         </div>
-                        <h3 class="card-title">纯净跳过 PureSkip</h3>
-                        <p class="card-desc">通过无障碍服务自动识别并跳过应用开屏广告。功能在本地完成，不申请联网权限，保持轻量和透明。</p>
+                        <h3 class="card-title" data-i18n="pureskipTitle">纯净跳过 PureSkip</h3>
+                        <p class="card-desc" data-i18n="pureskipDesc">通过无障碍服务自动识别并跳过应用开屏广告。功能在本地完成，不申请联网权限，保持轻量和透明。</p>
                         <ul class="project-points">
-                            <li>自动识别常见“跳过”控件</li>
-                            <li>本地运行，不上传用户数据</li>
-                            <li>APK 约 2.6MB，安装与使用简单</li>
+                            <li data-i18n="pureskipPoint1">自动识别常见“跳过”控件</li>
+                            <li data-i18n="pureskipPoint2">本地运行，不上传用户数据</li>
+                            <li data-i18n="pureskipPoint3">APK 约 2.6MB，安装与使用简单</li>
                         </ul>
                         <div class="project-tech">
                             <span class="tech-tag">Kotlin</span>
@@ -222,13 +223,13 @@
                         </div>
                         <div class="card-links">
                             <a href="https://pureskip.pages.dev/" target="_blank" rel="noopener" class="card-link">
-                                产品网站
+                                <span data-i18n="productSite">产品网站</span>
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
                                 </svg>
                             </a>
                             <a href="https://github.com/miaomiao636/PureSkip" target="_blank" rel="noopener" class="card-link">
-                                开源代码
+                                <span data-i18n="sourceCode">开源代码</span>
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
                                 </svg>
@@ -238,42 +239,42 @@
                 </article>
                 <!-- 项目3: 智能选股分析系统 -->
                 <article class="work-card project-stock fade-in">
-                    <div class="card-visual" aria-label="智能选股分析系统看板示意">
+                    <div class="card-visual" aria-label="智能选股分析系统看板示意" data-i18n-aria="stockAria">
                         <div class="dashboard-preview stock-preview">
-                            <div class="dashboard-top"><span>Stock Intelligence</span><i>实时</i></div>
-                            <div class="metric-row"><b>总资产<br><strong>¥20,043</strong></b><b>累计收益<br><strong>+0.22%</strong></b></div>
+                            <div class="dashboard-top"><span>Stock Intelligence</span><i data-i18n="live">实时</i></div>
+                            <div class="metric-row"><b><span data-i18n="totalAssets">总资产</span><br><strong>¥20,043</strong></b><b><span data-i18n="cumulativeReturn">累计收益</span><br><strong>+0.22%</strong></b></div>
                             <div class="stock-chart"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-                            <div class="stock-list"><span>今日推荐</span><b>6 个候选</b></div>
+                            <div class="stock-list"><span data-i18n="todaysPicks">今日推荐</span><b data-i18n="sixCandidates">6 个候选</b></div>
                         </div>
-                        <span class="visual-caption">盘前筛选 · 模拟交易 · 盘后复盘</span>
+                        <span class="visual-caption" data-i18n="stockCaption">盘前筛选 · 模拟交易 · 盘后复盘</span>
                     </div>
                     <div class="card-info">
                         <span class="project-number">03 / AUTOMATION</span>
                         <div class="card-tags">
-                            <span class="card-tag">全栈系统</span>
-                            <span class="card-tag">自动化</span>
+                            <span class="card-tag" data-i18n="fullStackSystem">全栈系统</span>
+                            <span class="card-tag" data-i18n="automation">自动化</span>
                         </div>
-                        <h3 class="card-title">智能选股分析系统</h3>
-                        <p class="card-desc">将每日选股研究整理成一套可持续运行的流程，覆盖盘前筛选、消息推送、模拟交易、跟踪与盘后复盘。</p>
+                        <h3 class="card-title" data-i18n="stockTitle">智能选股分析系统</h3>
+                        <p class="card-desc" data-i18n="stockDesc">将每日选股研究整理成一套可持续运行的流程，覆盖盘前筛选、消息推送、模拟交易、跟踪与盘后复盘。</p>
                         <ul class="project-points">
-                            <li>多因子筛选并生成候选清单</li>
-                            <li>飞书推送与交互确认</li>
-                            <li>云端定时运行，记录收益与回撤</li>
+                            <li data-i18n="stockPoint1">多因子筛选并生成候选清单</li>
+                            <li data-i18n="stockPoint2">飞书推送与交互确认</li>
+                            <li data-i18n="stockPoint3">云端定时运行，记录收益与回撤</li>
                         </ul>
                         <div class="project-tech">
                             <span class="tech-tag">Python</span>
-                            <span class="tech-tag">数据分析</span>
-                            <span class="tech-tag">飞书 API</span>
+                            <span class="tech-tag" data-i18n="dataAnalysis">数据分析</span>
+                            <span class="tech-tag" data-i18n="feishuApi">飞书 API</span>
                         </div>
                         <div class="card-links">
                             <a href="http://49.233.30.134/" target="_blank" rel="noopener" class="card-link">
-                                进入在线系统
+                                <span data-i18n="openLiveSystem">进入在线系统</span>
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
                                 </svg>
                             </a>
                             <a href="https://github.com/miaomiao636/stock-intelligence" target="_blank" rel="noopener" class="card-link">
-                                查看源码
+                                <span data-i18n="viewSource">查看源码</span>
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
                                 </svg>
@@ -284,30 +285,30 @@
 
                 <!-- 项目4: ReviewScope -->
                 <article class="work-card project-reviewscope fade-in">
-                    <div class="card-visual" aria-label="ReviewScope 用户反馈分析看板示意">
+                    <div class="card-visual" aria-label="ReviewScope 用户反馈分析看板示意" data-i18n-aria="reviewscopeAria">
                         <div class="dashboard-preview review-preview">
-                            <div class="dashboard-top"><span>ReviewScope</span><i>分析完成</i></div>
-                            <div class="review-metrics"><b><small>评论数</small>1,248</b><b><small>正面反馈</small>68%</b><b><small>高优问题</small>24</b></div>
+                            <div class="dashboard-top"><span>ReviewScope</span><i data-i18n="analysisComplete">分析完成</i></div>
+                            <div class="review-metrics"><b><small data-i18n="reviews">评论数</small>1,248</b><b><small data-i18n="positive">正面反馈</small>68%</b><b><small data-i18n="highPriority">高优问题</small>24</b></div>
                             <div class="review-main">
                                 <div class="donut"><span>68%</span></div>
                                 <div class="review-bars"><i></i><i></i><i></i><i></i><i></i></div>
                             </div>
-                            <div class="insight-chip">重点关注：登录体验与响应速度</div>
+                            <div class="insight-chip" data-i18n="reviewInsight">重点关注：登录体验与响应速度</div>
                         </div>
-                        <span class="visual-caption">评论输入 · 自动分析 · 可视化报告</span>
+                        <span class="visual-caption" data-i18n="reviewscopeCaption">评论输入 · 自动分析 · 可视化报告</span>
                     </div>
                     <div class="card-info">
                         <span class="project-number">04 / DATA PRODUCT</span>
                         <div class="card-tags">
-                            <span class="card-tag">开源项目</span>
-                            <span class="card-tag">用户洞察</span>
+                            <span class="card-tag" data-i18n="openSourceProject">开源项目</span>
+                            <span class="card-tag" data-i18n="userInsights">用户洞察</span>
                         </div>
                         <h3 class="card-title">ReviewScope</h3>
-                        <p class="card-desc">面向产品和运营的用户反馈分析平台。导入评论后，可集中查看情感倾向、问题分类、紧急度、趋势和高频关键词。</p>
+                        <p class="card-desc" data-i18n="reviewscopeDesc">面向产品和运营的用户反馈分析平台。导入评论后，可集中查看情感倾向、问题分类、紧急度、趋势和高频关键词。</p>
                         <ul class="project-points">
-                            <li>支持 CSV 导入及小红书、抖音评论采集</li>
-                            <li>提供情感、分类、紧急度与趋势看板</li>
-                            <li>可导出分析结果和 Markdown 洞察报告</li>
+                            <li data-i18n="reviewscopePoint1">支持 CSV 导入及小红书、抖音评论采集</li>
+                            <li data-i18n="reviewscopePoint2">提供情感、分类、紧急度与趋势看板</li>
+                            <li data-i18n="reviewscopePoint3">可导出分析结果和 Markdown 洞察报告</li>
                         </ul>
                         <div class="project-tech">
                             <span class="tech-tag">Python</span>
@@ -317,13 +318,13 @@
                         </div>
                         <div class="card-links">
                             <a href="https://reviewscope.streamlit.app/" target="_blank" rel="noopener" class="card-link">
-                                在线体验
+                                <span data-i18n="liveDemo">在线体验</span>
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
                                 </svg>
                             </a>
                             <a href="https://github.com/miaomiao636/ReviewScope" target="_blank" rel="noopener" class="card-link">
-                                查看源码
+                                <span data-i18n="viewSource">查看源码</span>
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
                                 </svg>
@@ -343,19 +344,19 @@
                     <div class="contact-blob"></div>
                 </div>
                 <div class="contact-content">
-                    <span class="contact-tag">想聊聊？</span>
+                    <span class="contact-tag" data-i18n="contactTag">想聊聊？</span>
                     <h2 class="contact-title">
-                        随时找我
+                        <span data-i18n="contactTitlePrefix">随时找我</span>
                         <br>
-                        <span class="title-highlight">都欢迎</span>
+                        <span class="title-highlight" data-i18n="contactTitleHighlight">都欢迎</span>
                     </h2>
                     <p class="contact-desc">
-                        有项目想法、想找人一起做，或者只是想认识一下——
+                        <span data-i18n="contactDesc1">有项目想法、想找人一起做，或者只是想认识一下——</span>
                         <br>
-                        如果你也关注实用工具、自动化或独立项目，欢迎来聊聊。
+                        <span data-i18n="contactDesc2">如果你也关注实用工具、自动化或独立项目，欢迎来聊聊。</span>
                     </p>
-                    <a href="mailto:2795542990@qq.com" class="contact-profile" aria-label="发送邮件">
-                        发送邮件
+                    <a href="mailto:2795542990@qq.com" class="contact-profile" aria-label="发送邮件" data-i18n-aria="sendEmail">
+                        <span data-i18n="sendEmail">发送邮件</span>
                     </a>
                     <div class="contact-social">
                         <a href="https://github.com/miaomiao636" target="_blank" rel="noopener" class="social-btn">
@@ -371,10 +372,8 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <p class="footer-text">
-                    独立构思，持续打磨 ✦
-                </p>
-                <p class="footer-copy">&copy; 2026 淼淼</p>
+                <p class="footer-text" data-i18n="footerText">独立构思，持续打磨 ✦</p>
+                <p class="footer-copy">&copy; 2026 <span data-i18n="name">淼淼</span></p>
             </div>
         </div>
     </footer>
